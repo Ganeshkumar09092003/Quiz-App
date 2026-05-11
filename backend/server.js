@@ -17,7 +17,9 @@ const connectDB = async () => {
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: "https://quiz-app-level-1.netlify.app"
+}));
 
 app.use("/v1/questions", questionRoutes);
 
