@@ -2,7 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const questionRoutes = require("./routes/question-routes")
-require("dotenv").config({ path: "local.env" });
+require("dotenv").config();
 
 const connectDB = async () => {
   try {
@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
   res.json({ message: "Server is running!" });
 });
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 const startServer = async () => {
   await connectDB();
